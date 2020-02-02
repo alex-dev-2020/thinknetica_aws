@@ -1,4 +1,4 @@
-case Train
+class Train
  
   attr_reader  :
   
