@@ -1,6 +1,9 @@
 case Train
-
-  def initialize
+ 
+  attr_reader  :
+  
+  def initialize()
+  
 # id (number), type (pass/cargo), vagon (q-ty)
   
   
