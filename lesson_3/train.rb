@@ -1,72 +1,53 @@
 class Train
- 
-  attr_reader  :train_id, :train_type :wagons_count
-  
-  def initialize(train_id, type = "cargo", wagons_count_count = 10)
-    @train_id = train_id
-	@speed = 0
-	
-	@wagons_count_count = []
-  
-# id (number), type (pass/cargo), vagon_count (q-ty)
-  
-  
-  end
-  
-# speed up
-  def speed_up(n)
-    @speed += n 
-  end
-  
-# speed down
-  def speed_down(n)
-    @speed -= n
-  end
-# stop
-  def stop
-    @speed = 0  
-  end
-  
-# add wagons (one per action, only if speed = 0)
- def add_wagon
-   @wagons << wagon if speed == 0
- end
- 
-# detach wagons (one per action, only if speed = 0)
- def
- 
- end
- 
-# wagons quantity
- def wagons_count
-   
-   @wagons.length
- 
- 
- end
 
-# accept route
- def
- 
- end
- 
-# if accep route - train placed at 1st station of route !!!
+	attr_reader  :train_id, :train_type, :wagon_qty
 
- def
- 
- end
-
-# moves among  stations in route (one shift per action) 
-
-  def
-  
-  end
-  
-# return station name (previous current, next)
-
-  def
-  
-  end
-
+    def initialize(train_id, train_type, wagon_qty)
+# speed = 0 at creation
+		
+		@train_id = train_id
+		@type = train_type
+		@wagons = []
+		@speed = 0
+		wagon_qty.times{add_wagon}
+    end
     
+  
+# отдельным методом wagon_qty
+    def wagon_qty
+      @wagons.length.to_i
+    end
+    
+    def speed_up(n)
+      @speed += n
+    end
+
+    def speed_down(n)
+# more attractive cecking of speed > 0 in line using ?
+      @speed = (@speed - n > 0 ) ? @speed - n : stop
+    end
+
+    def stop
+      @speed = 0
+    end
+
+#перепилил оба метода add_wagon & detach_wagon, если поезд едет - выводится сообщение warning
+    def warning
+      puts 'Train is running!!!'
+    end
+
+# очень интересаная реализация (подсмотрено у выпускников курса)
+# переменная @ wagons  представляет собой фактически заготовку массива строковых элементов вида [ 'wagon#1', 'wagon#2'..'wagon#' ]
+# который мы заполняем элементами при инициализации объекта класса
+# здесь в методе просто подсчитываем количество элементов этого массива, генерим очередной и добавляем(пушим)
+# здесь же проверяем условие speed == 0
+    def add_wagon
+    	(@speed == 0) ? @wagons << "wagon \##{wagon_qty + 1}" : warning 
+    end
+# добавил проверку на количество вагонов > 0  надо бы отдельный алёрт сделать по этому поводу
+# detach wagon
+    def detach_wagon
+    	(@speed == 0 && wagon_qty > 0) ? @wagons.pop : warning    	
+    end
+
 end
