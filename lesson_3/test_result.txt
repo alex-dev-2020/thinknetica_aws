@@ -1,0 +1,32 @@
+2.6.3 :003 > train = Train.new("12345", "cargo", 20)                                                                                                      
+ => #<Train:0x0000555b07475420 @train_id="12345", @type="cargo", @wagons=["wagon #1", "wagon #2", "wagon #3", "wagon #4", "wagon #5", "wagon #6", "wagon #7", "wagon #8", "wagon #9", "wagon #10", "wagon #11", "wagon #12", "wagon #13", "wagon #14", "wagon #15", "wagon #16", "wagon #17", "wagon #18", "wagon #19", "wagon #20"], @speed=0> 
+2.6.3 :004 > train.speed_up(15)
+ => 15 
+2.6.3 :005 > train
+ => #<Train:0x0000555b07475420 @train_id="12345", @type="cargo", @wagons=["wagon #1", "wagon #2", "wagon #3", "wagon #4", "wagon #5", "wagon #6", "wagon #7", "wagon #8", "wagon #9", "wagon #10", "wagon #11", "wagon #12", "wagon #13", "wagon #14", "wagon #15", "wagon #16", "wagon #17", "wagon #18", "wagon #19", "wagon #20"], @speed=15> 
+2.6.3 :006 > train.detach_wagon
+Train is running!!!
+ => nil 
+2.6.3 :007 > train.stop
+ => 0 
+2.6.3 :008 > train.detach_wagon
+ => "wagon #20" 
+2.6.3 :009 > train
+ => #<Train:0x0000555b07475420 @train_id="12345", @type="cargo", @wagons=["wagon #1", "wagon #2", "wagon #3", "wagon #4", "wagon #5", "wagon #6", "wagon #7", "wagon #8", "wagon #9", "wagon #10", "wagon #11", "wagon #12", "wagon #13", "wagon #14", "wagon #15", "wagon #16", "wagon #17", "wagon #18", "wagon #19"], @speed=0> 
+2.6.3 :010 > 
+
+2.6.3 :027 > train.detach_wagon
+ => "wagon #2" 
+2.6.3 :028 > train.detach_wagon
+ => "wagon #1" 
+2.6.3 :029 > train.detach_wagon
+Train is running!!!
+ => nil 
+2.6.3 :030 >
+
+ => nil 
+2.6.3 :030 > train.add_wagon
+ => ["wagon #1"] 
+2.6.3 :031 > train
+ => #<Train:0x0000555b07475420 @train_id="12345", @type="cargo", @wagons=["wagon #1"], @speed=0> 
+2.6.3 :032 > 

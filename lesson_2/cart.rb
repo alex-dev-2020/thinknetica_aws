@@ -15,7 +15,6 @@ loop do
   price = gets.chomp.to_f
   print "кол-во: "
   count = gets.chomp.to_f
-  
   cart[name] = {"price" => price, "count" => count}  
 end 
 
