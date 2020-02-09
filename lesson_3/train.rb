@@ -51,16 +51,16 @@ class Train
   def accept_route(route)
     @route = route
     # При назначении маршрута первая станция принимает поезд
-    @current_station = @route.stations.first
+    @route.stations.first.train_in(@id)
   end
 
 
   # возвращаем текущую  
   # Для нахождения своего положения на маршруте нужно обойти станции маршрута и узнать на какой из них стоит поезд
-  def current_station 
+  # def current_station 
 
-	  current_station = @current_station 
-  end
+	 # current_station = @route.stations.each { |station| station.trains.each{ |train| = @id } } 
+  # end
 
 
   # При перемещении текущая станция отправляет поезд и следующая его принимает (проверкa уже реализована в next_station & previous-station)

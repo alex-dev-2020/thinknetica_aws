@@ -5,7 +5,7 @@ class Station
 
   # def default st_name "main" & empty array of trains
   def initialize(st_name)
-    @name = name
+    @name = st_name
     @trains = []
   end
 
