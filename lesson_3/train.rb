@@ -27,6 +27,8 @@ class Train
   def warning_speed
     
   end
+  
+
 
 
   # переделал после code-review - @wagons - просто переменная
@@ -50,29 +52,24 @@ class Train
 
   def accept_route(route)
     @route = route
+    @current_station = @route.stations.first
     # При назначении маршрута первая станция принимает поезд
-    @route.stations.first.train_in(@id)
+    @current_station.train_in(self)
   end
 
 
-  # возвращаем текущую  
-  # Для нахождения своего положения на маршруте нужно обойти станции маршрута и узнать на какой из них стоит поезд
-  # def current_station 
-
-	 # current_station = @route.stations.each { |station| station.trains.each{ |train| = @id } } 
-  # end
-
+ 
 
   # При перемещении текущая станция отправляет поезд и следующая его принимает (проверкa уже реализована в next_station & previous-station)
-
-  def move_forward
-    current_station.train_out(id) && next_station.train_in(id)
-  end
+  
+    def move_forward
+      @current_station.train_out(@id) && next_station.train_in(@id)
+    end
 
   #  перемещаемся назад  , проверкa уже реализована в next_station & previous-station
   #  не выезжаем ли мы за границу маршрута
   def move_back
-    current_station.train_out(id) && previous_station.train_in(id)
+    @current_station.train_out(@id) && previous_station.train_in(@id)
   end
 
 
@@ -93,6 +90,5 @@ class Train
   def warning_route_border
   
   end
-
 
 end
