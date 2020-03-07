@@ -3,7 +3,7 @@
      attr_reader :current_rpm
      
      def self.description
-      puts "Это баззовый класс для всех авто"
+      puts "Это базовый класс для всех авто"
      end
      
      def initialize
