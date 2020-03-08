@@ -19,7 +19,6 @@
      end
      
      protected
-     
      attr_writer :current_rpm
      
      def initial_rpm
